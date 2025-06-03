@@ -1,32 +1,32 @@
 function calculateMaterials(length, width) {
-    // ÂÁ¿Û°å (300mm¡Á600mm = 0.3m¡Á0.6m)
+    // é“æ‰£æ¿ (300mmÃ—600mm = 0.3mÃ—0.6m)
     const aluminum_panel = Math.round((length * width) / (0.3 * 0.6)) + 5;
-    // Ö÷Áú¹Ç
+    // ä¸»é¾™éª¨
     const main_keel = Math.round((width * (Math.ceil(length / 1.0) + 1)) / 3.0);
-    // Èı½ÇÁú¹Ç
+    // ä¸‰è§’é¾™éª¨
     const triangle_keel = Math.round((length * (width / 0.3)) / 3) + 2;
-    // ½ÅÏß
+    // è„šçº¿
     const skirting = Math.round(((length + width) * 2) / 3) + 2;
-    // Ë¿¸Ë£¨ÏòÉÏÈ¡Õû£©
+    // ä¸æ†ï¼ˆå‘ä¸Šå–æ•´ï¼‰
     const threaded_rod = Math.ceil((Math.ceil(length) + 1) * width);
-    // ¿ìµõ£¨ÓëË¿¸ËÏàÍ¬£©
+    // å¿«åŠï¼ˆä¸ä¸æ†ç›¸åŒï¼‰
     const quick_hanger = threaded_rod;
-    // ÂİÃ±£¨¿ìµõ¡Á3£¬ÏòÉÏÈ¡Õû£©
+    // èºå¸½ï¼ˆå¿«åŠÃ—3ï¼Œå‘ä¸Šå–æ•´ï¼‰
     const nut = Math.ceil(quick_hanger * 3);
-    // ¹ÒÆ¬£¨ÏòÉÏÈ¡Õû£©
+    // æŒ‚ç‰‡ï¼ˆå‘ä¸Šå–æ•´ï¼‰
     const hanging_piece = Math.ceil((width / 0.3) * (length / 1.0 + 1));
-    // ÅÚ¶¤£¨¿ìµõ¡Á1.2£¬ÏòÉÏÈ¡Õû£©
+    // ç‚®é’‰ï¼ˆå¿«åŠÃ—1.2ï¼Œå‘ä¸Šå–æ•´ï¼‰
     const pin = Math.ceil(quick_hanger * 1.2);
     return [
-        { name: 'ÂÁ¿Û°å', value: aluminum_panel, unit: 'Æ¬' },
-        { name: 'Ö÷Áú¹Ç', value: main_keel, unit: 'Ö§' },
-        { name: 'Èı½ÇÁú¹Ç', value: triangle_keel, unit: 'Ö§' },
-        { name: '½ÅÏß', value: skirting, unit: 'Ö§' },
-        { name: 'Ë¿¸Ë', value: threaded_rod, unit: 'Ìõ' },
-        { name: '¿ìµõ', value: quick_hanger, unit: '¸ö' },
-        { name: 'ÂİÃ±', value: nut, unit: '¸ö' },
-        { name: '¹ÒÆ¬', value: hanging_piece, unit: '¸ö' },
-        { name: 'ÅÚ¶¤', value: pin, unit: '¸ö' }
+        { name: 'é“æ‰£æ¿', value: aluminum_panel, unit: 'ç‰‡' },
+        { name: 'ä¸»é¾™éª¨', value: main_keel, unit: 'æ”¯' },
+        { name: 'ä¸‰è§’é¾™éª¨', value: triangle_keel, unit: 'æ”¯' },
+        { name: 'è„šçº¿', value: skirting, unit: 'æ”¯' },
+        { name: 'ä¸æ†', value: threaded_rod, unit: 'æ¡' },
+        { name: 'å¿«åŠ', value: quick_hanger, unit: 'ä¸ª' },
+        { name: 'èºå¸½', value: nut, unit: 'ä¸ª' },
+        { name: 'æŒ‚ç‰‡', value: hanging_piece, unit: 'ä¸ª' },
+        { name: 'ç‚®é’‰', value: pin, unit: 'ä¸ª' }
     ];
 }
 
@@ -50,7 +50,7 @@ document.getElementById('calcBtn').addEventListener('click', function () {
     const length = parseFloat(document.getElementById('length').value);
     const width = parseFloat(document.getElementById('width').value);
     if (!validateInputs(length, width)) {
-        alert('ÇëÊäÈëÓĞĞ§µÄ·¿¼ä²ÎÊı£¬³¤¶ÈºÍ¿í¶ÈĞè´óÓÚ0¡£');
+        alert('è¯·è¾“å…¥æœ‰æ•ˆçš„æˆ¿é—´å‚æ•°ï¼Œé•¿åº¦å’Œå®½åº¦éœ€å¤§äº0ã€‚');
         return;
     }
     const result = calculateMaterials(length, width);
@@ -67,7 +67,7 @@ document.getElementById('calcBtn').addEventListener('click', function () {
     }
 });
 
-// ÒÆ³ı startBtn Ïà¹ØÊÂ¼ş¼àÌı
+// ç§»é™¤ startBtn ç›¸å…³äº‹ä»¶ç›‘å¬
 document.getElementById('startBtn').addEventListener('click', function () {
     var resultTable = document.getElementById('resultTable');
     if (resultTable) {
