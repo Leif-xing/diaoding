@@ -30,11 +30,11 @@ body {
 
 .container {
     background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
     width: 90%;
-    max-width: 800px;
+    max-width: 960px;
     margin: 0 auto;
 }
 
@@ -47,40 +47,59 @@ h2 {
 .input-area {
     display: flex;
     flex-direction: column;
-    gap: 22px;
-    margin-bottom: 10px;
+    gap: 18px;
+    margin-bottom: 20px;
 }
 
 .input-row {
     display: flex;
     align-items: center;
-    margin-bottom: 0;
+    margin-bottom: 10px;
 }
 
 .input-row label {
-    flex: 0 0 72px;
+    width: 80px;
     text-align: left;
     margin-right: 10px;
-    color: #555;
-    font-size: 16px;
+    color: #333;
+    font-weight: bold;
 }
 
 .input-row input {
     flex: 1;
-    min-width: 0;
-    width: 100%;
-    padding: 4px 8px;
+    padding: 10px 15px;
     border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 15px;
-    margin-left: 0;
+    border-radius: 5px;
+    font-size: 16px;
     text-align: center;
+}
+
+.divider {
+    height: 2px;
+    background-color: rgba(0, 119, 255, 0.2);
+    margin: 20px 0;
+}
+
+.input-row select {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    appearance: none;
+    /* 移除默认的下拉箭头 */
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000000%22%20d%3D%22M287%2C197.3L159.3%2C69.6c-3.6-3.6-8.6-5.4-13.7-5.4s-10.1%2C1.8-13.7%2C5.4L5.4%2C197.3c-7.2%2C7.2-7.2%2C18.8%2C0%2C26.1c3.6%2C3.6%2C8.6%2C5.4%2C13.7%2C5.4s10.1%2C1.8%2C13.7%2C5.4L145.6%2C98.8c3.6-3.6%2C8.6-5.4%2C13.7-5.4s10.1%2C1.8%2C13.7%2C5.4L287%2C223.4c7.2%2C7.2%2C7.2%2C18.8%2C0%2C26.1c-3.6%2C3.6-8.6%2C5.4-13.7%2C5.4s-10.1%2C1.8-13.7%2C5.4L287%2C197.3z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
 }
 
 .button-area {
     display: flex;
-    justify-content: space-between;
-    margin: 18px 0 16px 0;
+    flex-direction: row;
+    gap: 16px;
+    margin: 25px 0 16px 0;
 }
 
 .button-area button {

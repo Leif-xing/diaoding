@@ -1,10 +1,15 @@
 function calculateMaterials(length, width) {
-    // 铝扣板 (300mm×600mm = 0.3m×0.6m)
-    const aluminum_panel = Math.round((length * width) / (0.3 * 0.6)) + 5;
+    // 获取选择的板材尺寸（示例值：'300x600'）
+    const lkbSize = document.getElementById('lkbSize').value.split('x');
+    const lkbWidth = parseInt(lkbSize[0]) / 1000;
+    const lkbLength = parseInt(lkbSize[1]) / 1000;
+
+    // 铝扣板计算改用动态尺寸
+    const aluminum_panel = Math.round((length * width) / (lkbWidth * lkbLength)) + 5;
     // 主龙骨
     const main_keel = Math.round((width * (Math.ceil(length / 1.0) + 1)) / 3.0);
     // 三角龙骨
-    const triangle_keel = Math.round((length * (width / 0.3)) / 3) + 2;
+    const triangle_keel = Math.round((length * (width / lkbWidth)) / 3) + 2;
     // 脚线
     const skirting = Math.round(((length + width) * 2) / 3) + 2;
     // 丝杆（向上取整）
@@ -14,7 +19,7 @@ function calculateMaterials(length, width) {
     // 螺帽（快吊×3，向上取整）
     const nut = Math.ceil(quick_hanger * 3);
     // 挂片（向上取整）
-    const hanging_piece = Math.ceil((width / 0.3) * (length / 1.0 + 1));
+    const hanging_piece = Math.ceil((width / lkbWidth) * (length / 1.0 + 1));
     // 炮钉（快吊×1.2，向上取整）
     const pin = Math.ceil(quick_hanger * 1.2);
     return [
